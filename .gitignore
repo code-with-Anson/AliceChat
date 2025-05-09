@@ -1,7 +1,8 @@
 ### 自定义 ###
 application-local.yaml
 application-online.yaml
-
+.log
+/logs
 
 HELP.md
 target/
