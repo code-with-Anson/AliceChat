@@ -12,7 +12,7 @@ import reactor.core.publisher.Flux;
 @RequiredArgsConstructor
 @Service
 public class AliceChatServiceImpl implements AliceChatService {
-    private final ChatClient claudeByIyunxi;
+    private final ChatClient claudeByIyunxiClient;
     private final ChatClient deepseekClient;
 
     @Override
@@ -35,7 +35,7 @@ public class AliceChatServiceImpl implements AliceChatService {
 
     private Flux<String> chatWithClaudeByIyunxi(String message) {
 
-        return claudeByIyunxi.prompt(message).stream().content();
+        return claudeByIyunxiClient.prompt(message).stream().content();
     }
 
     private Flux<String> chatWithDeepseek(String message) {
