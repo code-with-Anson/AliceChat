@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: AliceChat
+  profiles:
+    active: local
+  ai:
+    openai:
+      api-key: write something here to prevent can't init other models, but actually not used
+      base-url: because we will init model in AiConfig Class
+
+server:
+  port: 5200
+logging:
+  level:
+    com.anson.alicechat: debug
+  file:
+    path: logs/${spring.application.name}
+
