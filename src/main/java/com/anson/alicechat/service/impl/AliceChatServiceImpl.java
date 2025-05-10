@@ -14,6 +14,7 @@ import reactor.core.publisher.Flux;
 public class AliceChatServiceImpl implements AliceChatService {
     private final ChatClient claudeByIyunxiClient;
     private final ChatClient deepseekClient;
+    private final ChatClient geminiClient;
 
     @Override
     public Flux<String> chatWithAlice(ChatDTO chatDTO) {
@@ -29,6 +30,7 @@ public class AliceChatServiceImpl implements AliceChatService {
         return switch (chatDTO.getModel()) {
             case ModelNameConstant.CLAUDE_BY_IYUNXI -> this.chatWithClaudeByIyunxi(message);
             case ModelNameConstant.DEEPSEEK -> this.chatWithDeepseek(message);
+            case ModelNameConstant.GEMINI -> this.chatWithGemini(message);
             default -> throw new ModelDontExistException("模型不存在哦");
         };
     }
@@ -40,5 +42,9 @@ public class AliceChatServiceImpl implements AliceChatService {
 
     private Flux<String> chatWithDeepseek(String message) {
         return deepseekClient.prompt(message).stream().content();
+    }
+
+    private Flux<String> chatWithGemini(String message) {
+        return geminiClient.prompt(message).stream().content();
     }
 }

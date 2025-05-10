@@ -59,16 +59,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!--为了解决Iyunxi的API接口SSL配置有问题，所以需要重写一个WebClient给这个ChatClient用-->
-        <dependency>
-            <groupId>io.projectreactor.netty</groupId>
-            <artifactId>reactor-netty-http</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-handler</artifactId>
-        </dependency>
-
         <!--Spring AI-->
         <dependency>
             <groupId>org.springframework.ai</groupId>
